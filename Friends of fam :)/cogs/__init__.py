@@ -47,3 +47,11 @@ async def get_response_for_query(query):
     break
 
   return {'results_embed': value}
+
+class Core:
+  async def update(none, q, answer):
+    data = await get_data()
+
+    data[str(q)] = answer
+
+    await set_data(data)
