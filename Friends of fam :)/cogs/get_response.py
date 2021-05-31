@@ -9,6 +9,13 @@ class Core(commands.Cog, EmbedCreator, Core):
 
   def __init__(self, bot):
     self.bot = bot
+   
+  async def update(self, q, answer):
+    data = await get_data()
+
+    data[str(q)] = answer
+
+    await set_data(data)
   
   @commands.Cog.listener()
   async def on_message(self, message, *, start_modmail=None, opened=None, user=None):
